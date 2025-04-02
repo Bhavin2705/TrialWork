@@ -1,20 +1,36 @@
 [
   {
-    "id": "e3b751fe-5640-4ea6-9aeb-bcb66216c4de",
-    "name": "Bhavin ",
-    "email": "bhavinjain2705@gmail.com",
-    "password": "123654789"
+    "id": 50,
+    "password": "NewPass"
   },
   {
-    "id": "fd2cb062-bcdd-40d1-a59f-ca5dfb8585a6",
+    "id": 204,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "password123"
+  },
+  {
+    "id": 266,
     "name": "Bhavin Jain",
-    "email": "bhavinJain@gmail.com",
+    "email": "bhavinjain2705@gmail.com",
     "password": "147852369"
   },
   {
-    "id": "bb7b2ea3-324f-46d8-97ef-a39a8d281f2e",
-    "name": "Bhavin",
-    "email": "bhavin@gmail.com",
-    "password": "123654789"
+    "id": 847,
+    "name": "Garvit",
+    "email": "garvit@gmail.com",
+    "password": "Garvit1234"
+  },
+  {
+    "id": 5,
+    "name": "User1",
+    "email": "user1@gmail.com",
+    "password": "1234"
+  },
+  {
+    "id": 6,
+    "name": "user2",
+    "email": "user2@gmail.com",
+    "password": "user1234"
   }
 ]

@@ -1,0 +1,83 @@
+Folder PATH listing for volume OS
+Volume serial number is 900D-7C20
+C:.
+|   friendRequests.json
+|   index.js
+|   messages.json
+|   messages.txt
+|   package-lock.json
+|   package.json
+|   posts.json
+|   README.md
+|   split_backend.sh
+|   structure.txt
+|   users.json
+|   
++---backend
+|   |   app.js
+|   |   
+|   +---config
+|   |       constants.js
+|   |       
+|   +---controllers
+|   |       authController.js
+|   |       externalController.js
+|   |       friendRequestController.js
+|   |       messageController.js
+|   |       postController.js
+|   |       
+|   +---models
+|   +---routes
+|   |       authRoutes.js
+|   |       externalRoutes.js
+|   |       friendRequestRoutes.js
+|   |       messageRoutes.js
+|   |       postRoutes.js
+|   |       
+|   +---services
+|   |       fileService.js
+|   |       
+|   \---utils
++---public
+|   |   Bookmarks.html
+|   |   explore.html
+|   |   ExplorePage.html
+|   |   home.html
+|   |   homePage.html
+|   |   homePages.html
+|   |   homes.html
+|   |   login.html
+|   |   messages.html
+|   |   my-posts.html
+|   |   Posts.html
+|   |   profile.html
+|   |   register.html
+|   |   responsive.css
+|   |   script.js
+|   |   
+|   +---.vscode
+|   |       settings.json
+|   |       
+|   \---components
+|       +---css
+|       |       Bookmarks.css
+|       |       explore.css
+|       |       explore1.css
+|       |       messages.css
+|       |       navbar.css
+|       |       Yourposts.css
+|       |       
+|       \---js
+|               Bookmarks.js
+|               explorePage.js
+|               leftsection.js
+|               messages.js
+|               middle-section.js
+|               navbar.js
+|               right-section.js
+|               Yourposts.js
+|               
+\---views
+        my-blog.html
+        profile.ejs
+        

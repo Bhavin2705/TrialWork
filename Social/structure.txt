@@ -1,0 +1,68 @@
+Folder PATH listing for volume OS
+Volume serial number is 900D-7C20
+C:.
+|   structure.txt
+|   
++---backend
+|   |   app.js
+|   |   
+|   +---config
+|   |       constants.js
+|   |       
+|   +---controllers
+|   |       authController.js
+|   |       externalController.js
+|   |       friendRequestController.js
+|   |       messageController.js
+|   |       postController.js
+|   |       
+|   +---models
+|   +---routes
+|   |       authRoutes.js
+|   |       externalRoutes.js
+|   |       friendRequestRoutes.js
+|   |       messageRoutes.js
+|   |       postRoutes.js
+|   |       
+|   +---services
+|   |       fileService.js
+|   |       
+|   \---utils
+\---frontend
+    |   ExplorePage.ejs
+    |   home.ejs
+    |   homePage.ejs
+    |   homePages.ejs
+    |   homes.ejs
+    |   login.ejs
+    |   messages.ejs
+    |   my-posts.ejs
+    |   Posts.ejs
+    |   profile.ejs
+    |   register.ejs
+    |   
+    +---assets
+    +---css
+    |       Bookmarks.css
+    |       explore.css
+    |       explore1.css
+    |       messages.css
+    |       navbar.css
+    |       Yourposts.css
+    |       
+    +---js
+    |   |   Bookmarks.js
+    |   |   explorePage.js
+    |   |   leftsection.js
+    |   |   messages.js
+    |   |   middle-section.js
+    |   |   navbar.js
+    |   |   right-section.js
+    |   |   Yourposts.js
+    |   |   
+    |   +---components
+    |   \---services
+    \---views
+            Bookmarks.ejs
+            explore.ejs
+            
