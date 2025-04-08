@@ -68,54 +68,55 @@
         .gradient-bg {
             background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
         }
-        
+
         .card-hover {
             transition: all 0.3s ease;
         }
-        
+
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .table-row-hover:hover {
             background-color: rgba(14, 165, 233, 0.05);
         }
-        
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
-        
+
         ::-webkit-scrollbar-track {
             background: #f1f5f9;
             border-radius: 10px;
         }
-        
+
         ::-webkit-scrollbar-thumb {
             background: #cbd5e1;
             border-radius: 10px;
         }
-        
+
         ::-webkit-scrollbar-thumb:hover {
             background: #94a3b8;
         }
-        
-        /* Animated background */
+
         .animated-gradient {
             background: linear-gradient(-45deg, #0ea5e9, #3b82f6, #f43f5e, #0ea5e9);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
         }
-        
+
         @keyframes gradient {
             0% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
+
             100% {
                 background-position: 0% 50%;
             }
@@ -129,9 +130,11 @@
         <div class="max-w-full mx-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-32">
-                    <a href="/" class="text-2xl font-semibold hover:text-secondary-500 transition-colors ml-8 flex items-center">
+                    <a href="/"
+                        class="text-2xl font-semibold hover:text-secondary-500 transition-colors ml-8 flex items-center">
                         <span class="text-primary-600">Social</span>
-                        <span class="ml-2 text-xs font-bold bg-secondary-500 text-white px-2 py-0.5 rounded-md">OWNER</span>
+                        <span
+                            class="ml-2 text-xs font-bold bg-secondary-500 text-white px-2 py-0.5 rounded-md">OWNER</span>
                     </a>
                 </div>
 
@@ -151,30 +154,37 @@
                     <div id="userProfileSection">
                         <div class="relative">
                             <button id="profileDropdownButton" class="flex items-center space-x-2 focus:outline-none">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary-500 to-primary-600 flex items-center justify-center shadow-md">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gradient-to-r from-primary-500 to-primary-600 flex items-center justify-center shadow-md">
                                     <i class="fas fa-crown text-white"></i>
                                 </div>
                                 <div class="text-left">
                                     <div class="font-semibold" id="ownerName">Owner</div>
                                     <div class="text-xs text-gray-500">Super Admin</div>
                                 </div>
-                                <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
 
-                            <div id="profileDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 animate-fade-in">
+                            <div id="profileDropdown"
+                                class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 animate-fade-in">
                                 <div class="p-2">
-                                    <a href="admin.html" class="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+                                    <a href="admin.html"
+                                        class="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
                                         <i class="fas fa-user-shield mr-2 text-primary-500"></i>
                                         Admin Panel
                                     </a>
-                                    <a href="/" class="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+                                    <a href="/"
+                                        class="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
                                         <i class="fas fa-home mr-2 text-primary-500"></i>
                                         Home
                                     </a>
                                     <hr class="my-1 border-gray-200">
-                                    <button id="logoutButton" class="flex items-center w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-md">
+                                    <button id="logoutButton"
+                                        class="flex items-center w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-md">
                                         <i class="fas fa-sign-out-alt mr-2"></i>
                                         Logout
                                     </button>
@@ -203,69 +213,29 @@
                 <h2 class="text-xl font-bold text-primary-600">Social Admin</h2>
                 <button id="close-menu" class="text-gray-600">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                 </button>
             </div>
             <ul class="space-y-4">
                 <li><a href="/" class="flex items-center py-2 text-gray-700 hover:text-primary-500">
-                    <i class="fas fa-home mr-2"></i> Home
-                </a></li>
+                        <i class="fas fa-home mr-2"></i> Home
+                    </a></li>
                 <li><a href="admin.html" class="flex items-center py-2 text-gray-700 hover:text-primary-500">
-                    <i class="fas fa-user-shield mr-2"></i> Admin Panel
-                </a></li>
+                        <i class="fas fa-user-shield mr-2"></i> Admin Panel
+                    </a></li>
                 <li><button id="mobile-logout" class="flex items-center py-2 text-red-600 hover:text-red-700">
-                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
-                </button></li>
+                        <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                    </button></li>
             </ul>
         </div>
     </div>
 
     <!-- Main Content -->
     <main class="container mx-auto py-6 pt-24 px-4">
-        <!-- Login Form (Initially Hidden) -->
-        <div id="loginContainer" class="max-w-md mx-auto bg-white rounded-xl shadow-soft p-8 mt-10 border border-gray-100">
-            <div class="text-center mb-8">
-                <div class="inline-block p-3 rounded-full bg-primary-100 text-primary-600 mb-4">
-                    <i class="fas fa-crown text-3xl"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-gray-800">Owner Login</h2>
-                <p class="text-gray-500 mt-2">Enter your credentials to access the owner dashboard</p>
-            </div>
-            <div class="mb-4">
-                <label for="ownerId" class="block text-gray-700 mb-2 font-medium">Owner ID</label>
-                <div class="relative">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <i class="fas fa-user text-gray-400"></i>
-                    </div>
-                    <input type="text" id="ownerId" class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
-                </div>
-            </div>
-            <div class="mb-6">
-                <label for="ownerPassword" class="block text-gray-700 mb-2 font-medium">Password</label>
-                <div class="relative">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <i class="fas fa-lock text-gray-400"></i>
-                    </div>
-                    <input type="password" id="ownerPassword" class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
-                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-                        <button id="togglePassword" type="button" class="text-gray-400 hover:text-gray-600 focus:outline-none">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div id="loginError" class="hidden mb-4 p-3 bg-red-50 text-red-600 text-center rounded-lg">
-                <i class="fas fa-exclamation-circle mr-2"></i>
-                <span id="errorMessage">Invalid credentials. Please try again.</span>
-            </div>
-            <button id="loginButton" class="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white py-2 rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all shadow-md hover:shadow-lg transform hover:scale-[1.02] active:scale-[0.98] font-medium">
-                <i class="fas fa-sign-in-alt mr-2"></i> Login
-            </button>
-        </div>
-
-        <!-- Dashboard (Initially Hidden) -->
-        <div id="dashboardContainer" class="hidden">
+        <!-- Dashboard -->
+        <div id="dashboardContainer">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-800">Owner Dashboard</h1>
@@ -273,29 +243,35 @@
                 </div>
                 <div class="flex flex-wrap gap-3">
                     <div class="relative">
-                        <select id="roleFilter" class="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all">
+                        <select id="roleFilter"
+                            class="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all">
                             <option value="all">All Roles</option>
                             <option value="admin">Admins</option>
                             <option value="moderator">Moderators</option>
                             <option value="user">Users</option>
                             <option value="guest">Guests</option>
                         </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </div>
                     </div>
                     <div class="relative">
-                        <select id="statusFilter" class="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all">
+                        <select id="statusFilter"
+                            class="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all">
                             <option value="all">All Status</option>
                             <option value="active">Active</option>
                             <option value="inactive">Inactive</option>
                             <option value="banned">Banned</option>
                         </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </div>
                     </div>
@@ -309,7 +285,8 @@
                         <div>
                             <p class="text-gray-500 text-sm">Total Users</p>
                             <h3 class="text-2xl font-bold text-gray-800" id="totalUserCount">0</h3>
-                            <p class="text-xs text-green-500 mt-1"><i class="fas fa-arrow-up mr-1"></i> 12% from last month</p>
+                            <p class="text-xs text-green-500 mt-1"><i class="fas fa-arrow-up mr-1"></i> 12% from last
+                                month</p>
                         </div>
                         <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
                             <i class="fas fa-users text-primary-500 text-xl"></i>
@@ -370,7 +347,8 @@
             <div class="bg-white rounded-xl shadow-soft overflow-hidden border border-gray-100 mb-8">
                 <div class="border-b border-gray-200">
                     <div class="flex overflow-x-auto">
-                        <button id="allUsersTab" class="px-6 py-4 text-primary-600 border-b-2 border-primary-500 font-medium">
+                        <button id="allUsersTab"
+                            class="px-6 py-4 text-primary-600 border-b-2 border-primary-500 font-medium">
                             All Users
                         </button>
                         <button id="adminsTab" class="px-6 py-4 text-gray-500 hover:text-gray-700 font-medium">
@@ -396,13 +374,27 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                             <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Login</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    ID</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Name</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Email</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Role</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Status</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Last Login</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Actions</th>
                             </tr>
                         </thead>
                         <tbody id="userTableBody" class="bg-white divide-y divide-gray-200">
@@ -418,19 +410,23 @@
                 </div>
                 <div class="p-4 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <div class="text-sm text-gray-500">
-                        Showing <span id="showingCount" class="font-medium">0</span> of <span id="totalCount" class="font-medium">0</span> users
+                        Showing <span id="showingCount" class="font-medium">0</span> of <span id="totalCount"
+                            class="font-medium">0</span> users
                     </div>
                     <div class="flex items-center space-x-4">
                         <div class="flex items-center space-x-1">
-                            <button id="prevPage" class="px-3 py-1 border border-gray-300 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors">
+                            <button id="prevPage"
+                                class="px-3 py-1 border border-gray-300 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors">
                                 <i class="fas fa-chevron-left"></i>
                             </button>
                             <div class="text-sm text-gray-700">Page <span id="currentPageNum">1</span></div>
-                            <button id="nextPage" class="px-3 py-1 border border-gray-300 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors">
+                            <button id="nextPage"
+                                class="px-3 py-1 border border-gray-300 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
-                        <select id="pageSizeSelect" class="appearance-none bg-white border border-gray-300 rounded-lg px-3 py-1 pr-8 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm">
+                        <select id="pageSizeSelect"
+                            class="appearance-none bg-white border border-gray-300 rounded-lg px-3 py-1 pr-8 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm">
                             <option value="5">5 per page</option>
                             <option value="10">10 per page</option>
                             <option value="20">20 per page</option>
@@ -442,13 +438,15 @@
     </main>
 
     <!-- Edit User Modal -->
-    <div id="editUserModal" class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+    <div id="editUserModal"
+        class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
         <div class="bg-white p-6 rounded-xl max-w-md w-full shadow-xl">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-semibold text-gray-800">Edit User</h3>
                 <button id="closeEditModal" class="text-gray-500 hover:text-gray-700 transition-colors">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                 </button>
             </div>
@@ -456,15 +454,18 @@
                 <input type="hidden" id="editUserId">
                 <div class="mb-4">
                     <label for="editName" class="block text-gray-700 mb-2 font-medium">Name</label>
-                    <input type="text" id="editName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
+                    <input type="text" id="editName"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
                 </div>
                 <div class="mb-4">
                     <label for="editEmail" class="block text-gray-700 mb-2 font-medium">Email</label>
-                    <input type="email" id="editEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
+                    <input type="email" id="editEmail"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
                 </div>
                 <div class="mb-4">
                     <label for="editRole" class="block text-gray-700 mb-2 font-medium">Role</label>
-                    <select id="editRole" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
+                    <select id="editRole"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
                         <option value="admin">Admin</option>
                         <option value="moderator">Moderator</option>
                         <option value="user">User</option>
@@ -473,22 +474,27 @@
                 </div>
                 <div class="mb-6">
                     <label for="editStatus" class="block text-gray-700 mb-2 font-medium">Status</label>
-                    <select id="editStatus" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
+                    <select id="editStatus"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
                         <option value="active">Active</option>
                         <option value="inactive">Inactive</option>
                         <option value="banned">Banned</option>
                     </select>
                 </div>
                 <div class="flex justify-end space-x-4">
-                    <button type="button" id="cancelEdit" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 transition-colors">Cancel</button>
-                    <button type="submit" class="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors">Save Changes</button>
+                    <button type="button" id="cancelEdit"
+                        class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 transition-colors">Cancel</button>
+                    <button type="submit"
+                        class="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors">Save
+                        Changes</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- Confirmation Modal -->
-    <div id="confirmationModal" class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+    <div id="confirmationModal"
+        class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
         <div class="bg-white p-6 rounded-xl max-w-md w-full shadow-xl">
             <div class="text-center mb-4">
                 <div id="modalIcon" class="inline-block p-3 rounded-full bg-red-100 text-red-500 mb-4">
@@ -498,14 +504,17 @@
                 <p class="text-gray-600 mt-2" id="modalMessage">Are you sure you want to perform this action?</p>
             </div>
             <div class="flex justify-center space-x-4 mt-6">
-                <button id="cancelAction" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 transition-colors">Cancel</button>
-                <button id="confirmAction" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors">Confirm</button>
+                <button id="cancelAction"
+                    class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 transition-colors">Cancel</button>
+                <button id="confirmAction"
+                    class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors">Confirm</button>
             </div>
         </div>
     </div>
 
     <!-- Toast Notification -->
-    <div id="toastNotification" class="hidden fixed bottom-4 right-4 bg-white border border-gray-200 rounded-lg shadow-lg p-4 transform transition-all duration-300 z-50 max-w-sm">
+    <div id="toastNotification"
+        class="hidden fixed bottom-4 right-4 bg-white border border-gray-200 rounded-lg shadow-lg p-4 transform transition-all duration-300 z-50 max-w-sm">
         <div class="flex items-center">
             <div id="toastIcon" class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center mr-4">
                 <i id="toastIconSymbol" class="fas fa-check text-lg"></i>
@@ -542,20 +551,8 @@
             { id: 16, name: 'Guest User', email: 'guest1@social.com', role: 'guest', status: 'inactive', lastLogin: '2023-05-28' }
         ];
 
-        // Owner credentials (in a real app, this would be stored securely on the server)
-        const ownerCredentials = {
-            id: 'owner123',
-            password: 'owner123'
-        };
-
         // DOM Elements
-        const loginContainer = document.getElementById('loginContainer');
         const dashboardContainer = document.getElementById('dashboardContainer');
-        const loginButton = document.getElementById('loginButton');
-        const loginError = document.getElementById('loginError');
-        const ownerIdInput = document.getElementById('ownerId');
-        const ownerPasswordInput = document.getElementById('ownerPassword');
-        const togglePassword = document.getElementById('togglePassword');
         const userTableBody = document.getElementById('userTableBody');
         const userSearchInput = document.getElementById('userSearchInput');
         const roleFilter = document.getElementById('roleFilter');
@@ -600,7 +597,7 @@
         const toastTitle = document.getElementById('toastTitle');
         const toastMessage = document.getElementById('toastMessage');
         const closeToast = document.getElementById('closeToast');
-        
+
         // Tab elements
         const allUsersTab = document.getElementById('allUsersTab');
         const adminsTab = document.getElementById('adminsTab');
@@ -615,29 +612,25 @@
         let filteredUsers = [...users];
         let activeTab = 'all';
 
-        // Check if owner is logged in
+        // Check if user is logged in and has owner role
         function checkAuth() {
-            const isLoggedIn = localStorage.getItem('ownerLoggedIn') === 'true';
-            if (isLoggedIn) {
-                loginContainer.classList.add('hidden');
+            const loggedInRole = localStorage.getItem('loggedInRole');
+            if (loggedInRole === 'owner') {
                 dashboardContainer.classList.remove('hidden');
                 updateDashboard();
             } else {
-                loginContainer.classList.remove('hidden');
-                dashboardContainer.classList.add('hidden');
+                // Redirect to login page if not logged in as owner
+                window.location.href = 'login.html'; // Assuming your login page is named login.html
             }
         }
 
         // Update dashboard data
         function updateDashboard() {
-            // Update counts
             totalUserCount.textContent = users.length;
             adminCount.textContent = users.filter(user => user.role === 'admin').length;
             modCount.textContent = users.filter(user => user.role === 'moderator').length;
             regularUserCount.textContent = users.filter(user => user.role === 'user').length;
             bannedCount.textContent = users.filter(user => user.status === 'banned').length;
-            
-            // Apply filters and render table
             applyFilters();
         }
 
@@ -646,13 +639,13 @@
             const searchTerm = userSearchInput.value.toLowerCase();
             const roleValue = roleFilter.value;
             const statusValue = statusFilter.value;
-            
+
             filteredUsers = users.filter(user => {
-                const matchesSearch = 
-                    user.name.toLowerCase().includes(searchTerm) || 
+                const matchesSearch =
+                    user.name.toLowerCase().includes(searchTerm) ||
                     user.email.toLowerCase().includes(searchTerm) ||
                     user.id.toString().includes(searchTerm);
-                
+
                 let matchesRole = true;
                 if (activeTab === 'admins') {
                     matchesRole = user.role === 'admin';
@@ -667,20 +660,18 @@
                 } else {
                     matchesRole = roleValue === 'all' || user.role === roleValue;
                 }
-                
+
                 let matchesStatus = true;
                 if (activeTab === 'banned') {
                     matchesStatus = user.status === 'banned';
                 } else {
                     matchesStatus = statusValue === 'all' || user.status === statusValue;
                 }
-                
+
                 return matchesSearch && matchesRole && matchesStatus;
             });
-            
+
             totalCount.textContent = filteredUsers.length;
-            
-            // Reset to first page when filters change
             currentPage = 1;
             currentPageNum.textContent = currentPage;
             renderTable();
@@ -691,21 +682,20 @@
             const start = (currentPage - 1) * itemsPerPage;
             const end = start + itemsPerPage;
             const paginatedUsers = filteredUsers.slice(start, end);
-            
+
             userTableBody.innerHTML = '';
-            
+
             if (paginatedUsers.length === 0) {
                 noResults.classList.remove('hidden');
                 showingCount.textContent = '0';
             } else {
                 noResults.classList.add('hidden');
                 showingCount.textContent = paginatedUsers.length;
-                
+
                 paginatedUsers.forEach(user => {
                     const row = document.createElement('tr');
                     row.className = 'table-row-hover';
-                    
-                    // Status badge class
+
                     let statusClass, statusIcon;
                     if (user.status === 'active') {
                         statusClass = 'bg-green-100 text-green-800';
@@ -717,8 +707,7 @@
                         statusClass = 'bg-red-100 text-red-800';
                         statusIcon = 'fa-ban';
                     }
-                    
-                    // Role badge class
+
                     let roleClass, roleIcon;
                     if (user.role === 'admin') {
                         roleClass = 'bg-blue-100 text-blue-800';
@@ -733,7 +722,7 @@
                         roleClass = 'bg-yellow-100 text-yellow-800';
                         roleIcon = 'fa-user-clock';
                     }
-                    
+
                     row.innerHTML = `
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${user.id}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${user.name}</td>
@@ -778,56 +767,55 @@
                             </div>
                         </td>
                     `;
-                    
+
                     userTableBody.appendChild(row);
                 });
-                
-                // Add event listeners to action buttons
+
                 document.querySelectorAll('.edit-user').forEach(button => {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         const userId = this.getAttribute('data-id');
                         openEditModal(userId);
                     });
                 });
-                
+
                 document.querySelectorAll('.demote-admin').forEach(button => {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         const userId = this.getAttribute('data-id');
                         showConfirmationModal('Demote Admin', 'Are you sure you want to demote this admin to a regular user?', 'warning', () => {
                             demoteUser(userId, 'admin');
                         });
                     });
                 });
-                
+
                 document.querySelectorAll('.demote-mod').forEach(button => {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         const userId = this.getAttribute('data-id');
                         showConfirmationModal('Demote Moderator', 'Are you sure you want to demote this moderator to a regular user?', 'warning', () => {
                             demoteUser(userId, 'moderator');
                         });
                     });
                 });
-                
+
                 document.querySelectorAll('.ban-user').forEach(button => {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         const userId = this.getAttribute('data-id');
                         showConfirmationModal('Ban User', 'Are you sure you want to ban this user? They will be unable to access their account.', 'danger', () => {
                             banUser(userId);
                         });
                     });
                 });
-                
+
                 document.querySelectorAll('.unban-user').forEach(button => {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         const userId = this.getAttribute('data-id');
                         showConfirmationModal('Unban User', 'Are you sure you want to unban this user? They will regain access to their account.', 'info', () => {
                             unbanUser(userId);
                         });
                     });
                 });
-                
+
                 document.querySelectorAll('.delete-user').forEach(button => {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         const userId = this.getAttribute('data-id');
                         showConfirmationModal('Delete User', 'Are you sure you want to delete this user? They will become a guest user.', 'danger', () => {
                             deleteUser(userId);
@@ -835,8 +823,7 @@
                     });
                 });
             }
-            
-            // Update pagination buttons
+
             prevPage.disabled = currentPage === 1;
             nextPage.disabled = end >= filteredUsers.length;
         }
@@ -850,7 +837,6 @@
                 editEmail.value = user.email;
                 editRole.value = user.role;
                 editStatus.value = user.status;
-                
                 editUserModal.classList.remove('hidden');
             }
         }
@@ -889,7 +875,6 @@
         function deleteUser(userId) {
             const userIndex = users.findIndex(u => u.id.toString() === userId);
             if (userIndex !== -1) {
-                // Convert to guest instead of removing
                 users[userIndex].role = 'guest';
                 users[userIndex].status = 'inactive';
                 updateDashboard();
@@ -901,8 +886,7 @@
         function showConfirmationModal(title, message, type, onConfirm) {
             modalTitle.textContent = title;
             modalMessage.textContent = message;
-            
-            // Set icon based on type
+
             if (type === 'danger') {
                 modalIcon.className = 'inline-block p-3 rounded-full bg-red-100 text-red-500 mb-4';
                 modalIcon.innerHTML = '<i class="fas fa-exclamation-triangle text-2xl"></i>';
@@ -916,10 +900,8 @@
                 modalIcon.innerHTML = '<i class="fas fa-info-circle text-2xl"></i>';
                 confirmAction.className = 'px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors';
             }
-            
+
             confirmationModal.classList.remove('hidden');
-            
-            // Store the confirm action
             confirmAction.onclick = () => {
                 onConfirm();
                 confirmationModal.classList.add('hidden');
@@ -930,8 +912,7 @@
         function showToast(title, message, type) {
             toastTitle.textContent = title;
             toastMessage.textContent = message;
-            
-            // Set icon and colors based on type
+
             if (type === 'success') {
                 toastIcon.className = 'flex-shrink-0 w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-4';
                 toastIconSymbol.className = 'fas fa-check text-green-500 text-lg';
@@ -945,12 +926,9 @@
                 toastIcon.className = 'flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-4';
                 toastIconSymbol.className = 'fas fa-info text-blue-500 text-lg';
             }
-            
-            // Show toast
+
             toastNotification.classList.remove('hidden');
             toastNotification.classList.add('animate-fade-in');
-            
-            // Auto hide after 3 seconds
             setTimeout(() => {
                 toastNotification.classList.add('opacity-0', 'translate-y-2');
                 setTimeout(() => {
@@ -962,32 +940,22 @@
 
         // Set active tab
         function setActiveTab(tab) {
-            // Remove active class from all tabs
             [allUsersTab, adminsTab, moderatorsTab, usersTab, guestsTab, bannedTab].forEach(tabEl => {
                 tabEl.classList.remove('text-primary-600', 'border-b-2', 'border-primary-500');
                 tabEl.classList.add('text-gray-500', 'hover:text-gray-700');
             });
-            
-            // Add active class to selected tab
+
             let activeTabEl;
-            if (tab === 'all') {
-                activeTabEl = allUsersTab;
-            } else if (tab === 'admins') {
-                activeTabEl = adminsTab;
-            } else if (tab === 'moderators') {
-                activeTabEl = moderatorsTab;
-            } else if (tab === 'users') {
-                activeTabEl = usersTab;
-            } else if (tab === 'guests') {
-                activeTabEl = guestsTab;
-            } else if (tab === 'banned') {
-                activeTabEl = bannedTab;
-            }
-            
+            if (tab === 'all') activeTabEl = allUsersTab;
+            else if (tab === 'admins') activeTabEl = adminsTab;
+            else if (tab === 'moderators') activeTabEl = moderatorsTab;
+            else if (tab === 'users') activeTabEl = usersTab;
+            else if (tab === 'guests') activeTabEl = guestsTab;
+            else if (tab === 'banned') activeTabEl = bannedTab;
+
             activeTabEl.classList.remove('text-gray-500', 'hover:text-gray-700');
             activeTabEl.classList.add('text-primary-600', 'border-b-2', 'border-primary-500');
-            
-            // Update active tab and reapply filters
+
             activeTab = tab;
             applyFilters();
         }
@@ -995,35 +963,11 @@
         // Event Listeners
         document.addEventListener('DOMContentLoaded', () => {
             checkAuth();
-            
-            // Login form submission
-            loginButton.addEventListener('click', () => {
-                const id = ownerIdInput.value;
-                const password = ownerPasswordInput.value;
-                
-                if (id === ownerCredentials.id && password === ownerCredentials.password) {
-                    localStorage.setItem('ownerLoggedIn', 'true');
-                    checkAuth();
-                    showToast('Login Successful', 'Welcome to the Owner Dashboard', 'success');
-                } else {
-                    loginError.classList.remove('hidden');
-                    document.getElementById('errorMessage').textContent = 'Invalid credentials. Please try again.';
-                }
-            });
-            
-            // Toggle password visibility
-            togglePassword.addEventListener('click', () => {
-                const type = ownerPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                ownerPasswordInput.setAttribute('type', type);
-                togglePassword.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
-            });
-            
-            // Search and filter
+
             userSearchInput.addEventListener('input', applyFilters);
             roleFilter.addEventListener('change', applyFilters);
             statusFilter.addEventListener('change', applyFilters);
-            
-            // Pagination
+
             prevPage.addEventListener('click', () => {
                 if (currentPage > 1) {
                     currentPage--;
@@ -1031,7 +975,7 @@
                     renderTable();
                 }
             });
-            
+
             nextPage.addEventListener('click', () => {
                 const maxPage = Math.ceil(filteredUsers.length / itemsPerPage);
                 if (currentPage < maxPage) {
@@ -1040,57 +984,40 @@
                     renderTable();
                 }
             });
-            
-            // Page size select
+
             pageSizeSelect.addEventListener('change', () => {
                 itemsPerPage = parseInt(pageSizeSelect.value);
                 currentPage = 1;
                 currentPageNum.textContent = currentPage;
                 renderTable();
             });
-            
-            // Tab navigation
+
             allUsersTab.addEventListener('click', () => setActiveTab('all'));
             adminsTab.addEventListener('click', () => setActiveTab('admins'));
             moderatorsTab.addEventListener('click', () => setActiveTab('moderators'));
             usersTab.addEventListener('click', () => setActiveTab('users'));
             guestsTab.addEventListener('click', () => setActiveTab('guests'));
             bannedTab.addEventListener('click', () => setActiveTab('banned'));
-            
-            // Edit user form
+
             editUserForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                
                 const userId = editUserId.value;
                 const userIndex = users.findIndex(u => u.id.toString() === userId);
-                
                 if (userIndex !== -1) {
                     users[userIndex].name = editName.value;
                     users[userIndex].email = editEmail.value;
                     users[userIndex].role = editRole.value;
                     users[userIndex].status = editStatus.value;
-                    
                     editUserModal.classList.add('hidden');
                     updateDashboard();
                     showToast('User Updated', 'User information has been updated successfully.', 'success');
                 }
             });
-            
-            // Close edit modal
-            closeEditModal.addEventListener('click', () => {
-                editUserModal.classList.add('hidden');
-            });
-            
-            cancelEdit.addEventListener('click', () => {
-                editUserModal.classList.add('hidden');
-            });
-            
-            // Modal cancel button
-            cancelAction.addEventListener('click', () => {
-                confirmationModal.classList.add('hidden');
-            });
-            
-            // Close toast
+
+            closeEditModal.addEventListener('click', () => editUserModal.classList.add('hidden'));
+            cancelEdit.addEventListener('click', () => editUserModal.classList.add('hidden'));
+            cancelAction.addEventListener('click', () => confirmationModal.classList.add('hidden'));
+
             closeToast.addEventListener('click', () => {
                 toastNotification.classList.add('opacity-0', 'translate-y-2');
                 setTimeout(() => {
@@ -1098,37 +1025,26 @@
                     toastNotification.classList.remove('opacity-0', 'translate-y-2');
                 }, 300);
             });
-            
-            // Profile dropdown
-            profileDropdownButton.addEventListener('click', () => {
-                profileDropdown.classList.toggle('hidden');
-            });
-            
-            // Close dropdown when clicking outside
+
+            profileDropdownButton.addEventListener('click', () => profileDropdown.classList.toggle('hidden'));
+
             document.addEventListener('click', (event) => {
                 if (!profileDropdownButton.contains(event.target) && !profileDropdown.contains(event.target)) {
                     profileDropdown.classList.add('hidden');
                 }
             });
-            
-            // Logout
+
             logoutButton.addEventListener('click', () => {
-                localStorage.removeItem('ownerLoggedIn');
-                checkAuth();
+                localStorage.removeItem('loggedInRole');
+                window.location.href = 'login.html';
             });
-            
-            // Mobile menu
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.remove('hidden');
-            });
-            
-            closeMenu.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-            
+
+            menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+            closeMenu.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+
             mobileLogout.addEventListener('click', () => {
-                localStorage.removeItem('ownerLoggedIn');
-                checkAuth();
+                localStorage.removeItem('loggedInRole');
+                window.location.href = 'login.html';
                 mobileMenu.classList.add('hidden');
             });
         });
