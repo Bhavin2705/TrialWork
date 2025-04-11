@@ -127,30 +127,43 @@
             const userProfileSection = document.getElementById('userProfileSection');
 
             if (loggedInUser) {
+                const profilePicture = loggedInUser.profilePicture || 'https://via.placeholder.com/32';
                 userProfileSection.innerHTML = `
-            <div class="relative">
-                <button id="profileDropdownButton" class="flex items-center space-x-2 focus:outline-none">
-                    <div class="w-8 h-8 rounded-full bg-gray-300"></div>
-                    <div class="text-left">
-                        <div class="font-semibold">${loggedInUser.name}</div>
-                    </div>
-                    <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
+                    <div class="relative">
+                        <button id="profileDropdownButton" class="flex items-center space-x-2 focus:outline-none">
+                            <img src="${profilePicture}" alt="Profile" class="w-8 h-8 rounded-full object-cover" id="navbarProfilePic">
+                            <div class="text-left">
+                                <div class="font-semibold">${loggedInUser.name}</div>
+                            </div>
+                            <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
 
-                <div id="profileDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 animate-fade-in">
-                    <div class="p-2">
-                        <button id="profileButton" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
-                            Profile
-                        </button>
-                        <button id="logoutButton" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
-                            Logout
-                        </button>
+                        <div id="profileDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 animate-fade-in">
+                            <div class="p-2">
+                                <button id="profileButton" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+                                    Profile
+                                </button>
+                                <button id="logoutButton" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        `;
+                `;
+
+                // Update left section profile picture and details
+                const leftProfilePic = document.querySelector('#left-section .profile-container .h-12');
+                const userName = document.getElementById('userName');
+                const userHandle = document.getElementById('userHandle');
+                if (leftProfilePic) {
+                    leftProfilePic.style.backgroundImage = `url(${profilePicture})`;
+                    leftProfilePic.style.backgroundSize = 'cover';
+                    leftProfilePic.style.backgroundPosition = 'center';
+                }
+                if (userName) userName.textContent = loggedInUser.name;
+                if (userHandle) userHandle.textContent = `@${loggedInUser.name.toLowerCase().replace(/\s/g, '')}`;
 
                 const profileDropdownButton = document.getElementById('profileDropdownButton');
                 const profileDropdown = document.getElementById('profileDropdown');
@@ -173,11 +186,10 @@
                     });
                 }
 
-                // Add event listener for the profile button
                 const profileButton = document.getElementById('profileButton');
                 if (profileButton) {
                     profileButton.addEventListener('click', () => {
-                        window.location.href = '/profile';
+                        window.location.href = '/profile.html';
                     });
                 }
             } else {
@@ -239,7 +251,7 @@
         </ul>
     </div>
 
-    <main class="container mx-auto py-6 " id="main-section">
+    <main class="container mx-auto py-6" id="main-section">
         <div class="flex flex-wrap">
             <div class="container mx-auto">
                 <div id="left-section">
@@ -249,8 +261,8 @@
                                 <div class="h-12 w-12 rounded-full bg-gray-300"></div>
                             </div>
                             <div class="flex-1">
-                                <h4 class="text-lg font-bold text-gray-700" id="userName"> </h4>
-                                <p class="text-sm text-gray-500" id="userHandle"> </p>
+                                <h4 class="text-lg font-bold text-gray-700" id="userName"></h4>
+                                <p class="text-sm text-gray-500" id="userHandle"></p>
                             </div>
                         </a>
                     </div>
@@ -292,12 +304,11 @@
                 </div>
             </div>
 
-            <!-- Enhanced Middle Section -->
+            <!-- Middle Section -->
             <div class="w-full md:w-1/2 p-4" id="middle-section">
                 <!-- Stories Section -->
                 <div id="story-container" class="mb-6 pt-4 overflow-x-auto">
                     <div class="flex space-x-4 pb-2">
-                        <!-- Add Story Button -->
                         <div id="add-story-button" class="flex flex-col items-center space-y-1 min-w-[72px]">
                             <div
                                 class="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center cursor-pointer hover:bg-blue-600 transition-colors">
@@ -308,7 +319,6 @@
                             </div>
                             <span class="text-xs text-gray-600 dark:text-gray-400">Add Story</span>
                         </div>
-                        <!-- Story Items (Will be populated by JS) -->
                     </div>
                 </div>
 
@@ -316,8 +326,8 @@
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-6">
                     <div class="flex items-center space-x-4">
                         <img class="w-10 h-10 rounded-full"
-                            src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?crop=faces&fit=crop&w=200&h=200&q=80"
-                            alt="Profile Image">
+                            src="${loggedInUser ? loggedInUser.profilePicture || 'https://via.placeholder.com/40' : 'https://via.placeholder.com/40'}"
+                            alt="Profile Image" id="createPostProfilePic">
                         <button id="create-post-button"
                             class="flex-grow text-left px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
                             What's on your mind?
@@ -391,93 +401,85 @@
                 <!-- Error State -->
                 <div id="error-state" class="hidden">
                     <div class="flex flex-col items-center justify-center py-8 space-y-4">
-                        < <div class="text-red-500 dark:text-red-400">
+                        <div class="text-red-500 dark:text-red-400">
                             <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">Failed to load posts</p>
+                        <button id="retry-button"
+                            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                            Try Again
+                        </button>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">Failed to load posts</p>
-                    <button id="retry-button"
-                        class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-                        Try Again
-                    </button>
+                </div>
+            </div>
+
+            <div id="right-section"
+                class="w-full md:w-1/4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg space-y-6">
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 shadow-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Friend Requests</h3>
+                        <span id="request-count" class="bg-blue-500 text-white px-2 py-1 rounded-full text-sm"></span>
+                    </div>
+                    <div class="space-y-4 max-h-[300px] overflow-y-auto" id="friend-requests-container">
+                        <!-- Friend requests will be dynamically inserted here -->
+                    </div>
+                    <div id="no-requests" class="hidden text-center text-gray-500 dark:text-gray-400 py-4">
+                        No friend requests at the moment
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 shadow-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Trending Topics</h3>
+                        <button id="refresh-trends" class="text-blue-500 hover:text-blue-600 transition">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    <div id="trending-container" class="flex flex-wrap gap-2">
+                        <div
+                            class="trending-topic bg-blue-500 text-white rounded-full px-4 py-2 text-sm hover:bg-blue-600 transition">
+                            Technology
+                        </div>
+                        <div
+                            class="trending-topic bg-blue-500 text-white rounded-full px-4 py-2 text-sm hover:bg-blue-600 transition">
+                            News
+                        </div>
+                        <div
+                            class="trending-topic bg-blue-500 text-white rounded-full px-4 py-2 text-sm hover:bg-blue-600 transition">
+                            Fitness
+                        </div>
+                        <div
+                            class="trending-topic bg-blue-500 text-white rounded-full px-4 py-2 text-sm hover:bg-blue-600 transition">
+                            Sports
+                        </div>
+                        <div
+                            class="trending-topic bg-blue-500 text-white rounded-full px-4 py-2 text-sm hover:bg-blue-600 transition">
+                            Movies
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 shadow-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Recent Activity</h3>
+                        <button id="clear-activity" class="text-gray-500 hover:text-gray-600 transition">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <div id="activity-feed" class="space-y-3 max-h-[250px] overflow-y-auto">
+                        <!-- Activity items will be dynamically inserted here -->
+                    </div>
                 </div>
             </div>
         </div>
-
-
-
-        <div id="right-section" class="w-full md:w-1/4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg space-y-6">
-            <!-- Friend Requests Section -->
-            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 shadow-md">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Friend Requests</h3>
-                    <span id="request-count" class="bg-blue-500 text-white px-2 py-1 rounded-full text-sm"></span>
-                </div>
-                <div class="space-y-4 max-h-[300px] overflow-y-auto" id="friend-requests-container">
-                    <!-- Friend requests will be dynamically inserted here -->
-                </div>
-                <div id="no-requests" class="hidden text-center text-gray-500 dark:text-gray-400 py-4">
-                    No friend requests at the moment
-                </div>
-            </div>
-
-            <!-- Trending Section -->
-            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 shadow-md">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Trending Topics</h3>
-                    <button id="refresh-trends" class="text-blue-500 hover:text-blue-600 transition">
-                        <i class="fas fa-sync-alt"></i>
-                    </button>
-                </div>
-                <div id="trending-container" class="flex flex-wrap gap-2">
-                    <!-- Trending topics will be dynamically inserted here -->
-                    <div
-                        class="trending-topic bg-blue-500 text-white rounded-full px-4 py-2 text-sm hover:bg-blue-600 transition">
-                        Technology
-                    </div>
-                    <div
-                        class="trending-topic bg-blue-500 text-white rounded-full px-4 py-2 text-sm hover:bg-blue-600 transition">
-                        News
-                    </div>
-                    <div
-                        class="trending-topic bg-blue-500 text-white rounded-full px-4 py-2 text-sm hover:bg-blue-600 transition">
-                        Fitness
-                    </div>
-                    <div
-                        class="trending-topic bg-blue-500 text-white rounded-full px-4 py-2 text-sm hover:bg-blue-600 transition">
-                        Sports
-                    </div>
-                    <div
-                        class="trending-topic bg-blue-500 text-white rounded-full px-4 py-2 text-sm hover:bg-blue-600 transition">
-                        Movies
-                    </div>
-                </div>
-            </div>
-
-            <!-- Activity Feed Section -->
-            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 shadow-md">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Recent Activity</h3>
-                    <button id="clear-activity" class="text-gray-500 hover:text-gray-600 transition">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div id="activity-feed" class="space-y-3 max-h-[250px] overflow-y-auto">
-                    <!-- Activity items will be dynamically inserted here -->
-                </div>
-            </div>
-        </div>
-        </div>
-
     </main>
     <script src="script.js"></script>
     <script src="./components/js/leftsection.js"></script>
     <script src="./components/js/right-section.js"></script>
     <script src="./components/js/middle-section.js"></script>
-
-
 </body>
 
 </html>

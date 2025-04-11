@@ -9,19 +9,21 @@
   <style>
     .error-message {
       color: #ef4444;
-      /* Red-500 */
       font-size: 0.875rem;
-      /* text-sm */
       margin-top: 0.25rem;
-      /* mt-1 */
+    }
+
+    .upload-preview img {
+      max-width: 100px;
+      max-height: 100px;
+      object-fit: cover;
+      border-radius: 0.375rem;
     }
   </style>
 </head>
 
 <body class="bg-gray-50 min-h-screen flex items-center justify-center">
-  <!-- Main Container -->
   <div id="authContainer" class="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-md">
-    <!-- Sign-Up Form -->
     <div id="signupForm" class="p-8">
       <h2 class="text-2xl font-bold text-gray-800 mb-6">Join Us Today!</h2>
       <form id="signupFormElement" novalidate>
@@ -43,89 +45,162 @@
           <div id="emailError" class="error-message hidden">Please enter a valid email address.</div>
         </div>
 
+        <!-- Profile Picture -->
+        <div class="mb-4">
+          <label for="signupProfilePicture" class="block text-gray-700 mb-2">Profile Picture (Optional)</label>
+          <input type="file" id="signupProfilePicture" accept="image/*"
+            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <div id="profilePicturePreview" class="upload-preview mt-2 hidden">
+            <img src="" alt="Profile Picture Preview">
+          </div>
+          <div id="profilePictureError" class="error-message hidden">Invalid image file.</div>
+        </div>
+
         <!-- Password -->
-        <div class="mb-6">
+        <div class="mb-4">
           <label for="signupPassword" class="block text-gray-700 mb-2">Password</label>
           <input type="password" id="signupPassword"
             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Create a password" required>
-          <div id="passwordError" class="error-message hidden">Password must be at least 8 characters long.</div>
+          <div id="passwordError" class="error-message hidden">Password must be at least 8 characters long, with one
+            uppercase letter, one number, and one special character.</div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="mb-6">
+          <label for="signupConfirmPassword" class="block text-gray-700 mb-2">Confirm Password</label>
+          <input type="password" id="signupConfirmPassword"
+            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Confirm your password" required>
+          <div id="confirmPasswordError" class="error-message hidden">Passwords do not match.</div>
         </div>
 
         <!-- Submit Button -->
         <button type="submit"
-          class="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all">
+          class="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          id="signupButton">
           Sign Up
         </button>
 
         <!-- Already have an account? -->
         <p class="text-center text-gray-600 mt-4">
-          Already have an account? <a href="/login" class="text-blue-500 hover:underline">Log in</a>
+          Already have an account? <a href="/login.html" class="text-blue-500 hover:underline">Log in</a>
         </p>
       </form>
     </div>
   </div>
 
-  <!-- JavaScript -->
   <script>
     const signupFormElement = document.getElementById('signupFormElement');
+    const signupButton = document.getElementById('signupButton');
+    const profilePictureInput = document.getElementById('signupProfilePicture');
+    const profilePicturePreview = document.getElementById('profilePicturePreview');
 
-    // Sign-Up Form Submission
-    signupFormElement?.addEventListener('submit', async (e) => {
+    // Preview profile picture
+    profilePictureInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          profilePicturePreview.querySelector('img').src = event.target.result;
+          profilePicturePreview.classList.remove('hidden');
+          document.getElementById('profilePictureError').classList.add('hidden');
+        };
+        reader.readAsDataURL(file);
+      } else {
+        profilePicturePreview.classList.add('hidden');
+        document.getElementById('profilePictureError').classList.remove('hidden');
+      }
+    });
+
+    // Form submission
+    signupFormElement.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      // Get form values
       const name = document.getElementById('signupName').value.trim();
       const email = document.getElementById('signupEmail').value.trim();
       const password = document.getElementById('signupPassword').value.trim();
+      const confirmPassword = document.getElementById('signupConfirmPassword').value.trim();
+      const profilePictureFile = profilePictureInput.files[0];
 
       // Clear previous error messages
       document.getElementById('nameError').classList.add('hidden');
       document.getElementById('emailError').classList.add('hidden');
       document.getElementById('passwordError').classList.add('hidden');
+      document.getElementById('confirmPasswordError').classList.add('hidden');
+      document.getElementById('profilePictureError').classList.add('hidden');
 
       let isValid = true;
 
+      // Validate name
       if (!name) {
         document.getElementById('nameError').classList.remove('hidden');
         isValid = false;
       }
 
-      if (!email) {
+      // Validate email
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         document.getElementById('emailError').classList.remove('hidden');
         isValid = false;
       }
 
-      if (password.length < 8) {
+      // Validate password
+      const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+      if (!passwordRegex.test(password)) {
         document.getElementById('passwordError').classList.remove('hidden');
         isValid = false;
       }
 
-      if (!isValid) {
-        return;
+      // Validate confirm password
+      if (password !== confirmPassword) {
+        document.getElementById('confirmPasswordError').classList.remove('hidden');
+        isValid = false;
       }
 
-      try {
-        // Send registration data to the backend
-        const response = await fetch('/register', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, password }),
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-          // Store user data in localStorage
-          localStorage.setItem('loggedInUser', JSON.stringify(result.user));
-          alert(result.message);
-          // Redirect to login page after successful registration
-          window.location.href = '/login';
+      // Validate profile picture (optional)
+      let profilePicture = '';
+      if (profilePictureFile) {
+        if (profilePictureFile.type.startsWith('image/')) {
+          profilePicture = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = (event) => resolve(event.target.result);
+            reader.readAsDataURL(profilePictureFile);
+          });
         } else {
-          alert(result.message || 'Registration failed. Please try again.');
+          document.getElementById('profilePictureError').classList.remove('hidden');
+          isValid = false;
         }
+      }
+
+      if (!isValid) return;
+
+      // Disable button during processing
+      signupButton.disabled = true;
+      signupButton.textContent = 'Registering...';
+
+      try {
+        // Get or initialize users array
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Check if email already exists
+        if (users.some(user => user.email === email)) {
+          throw new Error('Email already registered.');
+        }
+
+        // Create new user
+        const newUser = { name, email, password, profilePicture };
+        users.push(newUser);
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('loggedInUser', JSON.stringify(newUser));
+
+        alert('Registration successful!');
+        window.location.href = '/login.html';
       } catch (error) {
-        console.error('Error during registration:', error);
-        alert('An error occurred during registration. Please try again.');
+        alert(error.message || 'Registration failed. Please try again.');
+      } finally {
+        signupButton.disabled = false;
+        signupButton.textContent = 'Sign Up';
       }
     });
   </script>
